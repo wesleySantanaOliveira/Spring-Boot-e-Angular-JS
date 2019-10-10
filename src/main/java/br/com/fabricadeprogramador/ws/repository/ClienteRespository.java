@@ -8,6 +8,4 @@ import br.com.fabricadeprogramador.ws.model.Cliente;
 @Repository
 public interface ClienteRespository extends JpaRepository<Cliente, Integer>{
 
-	Cliente findOne(Integer id);
-
 }

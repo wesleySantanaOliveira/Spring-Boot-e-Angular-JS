@@ -1,6 +1,7 @@
 package br.com.fabricadeprogramador.ws.service;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,13 +22,13 @@ public class ClienteService {
 		}
 		
 		//LISTAR CLIENTE
-		public Collection<Cliente>	buscarTodos(){
+		public Collection<Cliente>buscarTodos(){
 			return clienteResposity.findAll();
 		}
 		
 		//REMOVER CLIENTE
-		public void excluir(Cliente clienteEncontrado) {
-			clienteResposity.delete(clienteEncontrado);
+		public void excluir(Cliente cliente) {
+			clienteResposity.delete(cliente);
 		}
 		
 		//BUSCA POR ID

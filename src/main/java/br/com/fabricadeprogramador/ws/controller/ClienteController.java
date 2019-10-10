@@ -26,13 +26,12 @@ public class ClienteController {
 	@Autowired
 	ClienteRespository clienteResposity;
 		
-	//EndPoint
+	//END POINT
 	//CRIAR CLIENTE
 	@RequestMapping(method = RequestMethod.POST, value = "/clientes",
 			consumes = org.springframework.http.MediaType.APPLICATION_JSON_VALUE , 
 			produces = org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Cliente> cadastrarCliente(@RequestBody Cliente cliente) {		
-		
+	public ResponseEntity<Cliente> cadastrarCliente(@RequestBody Cliente cliente) {	
 		Cliente clienteCadastrado = clienteService.cadastrar(cliente);		
 		return new ResponseEntity<Cliente>(clienteCadastrado, HttpStatus.OK);
 	}
@@ -40,18 +39,16 @@ public class ClienteController {
 	//CONSULTA CLIENTE
 	@RequestMapping(method = RequestMethod.GET, value = "/clientes", 
 			produces = org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Collection<Cliente>> buscarTodosClientes() {		
-		
+	public ResponseEntity<Collection<Cliente>> buscarTodosClientes() {			
 		Collection<Cliente> clientesBuscado = clienteService.buscarTodos();		
 		return new ResponseEntity<>(clientesBuscado, HttpStatus.OK);
 	}
 	
 	//CONSULTA EXCLUIR
 	@RequestMapping(method = RequestMethod.DELETE, value = "/clientes/{id}")
-	public ResponseEntity<Cliente> excluirCliente(@PathVariable Integer id) {		
+	public ResponseEntity<Cliente> excluirCliente(@PathVariable Integer id) {	
 		
-		Cliente clienteEncontrado = clienteService.buscaPorId(id);
-		
+		Cliente clienteEncontrado = clienteService.buscaPorId(id);			
 		if(clienteEncontrado == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);			
 		}	
@@ -66,7 +63,5 @@ public class ClienteController {
 	public ResponseEntity<Cliente> alterarCliente(@RequestBody Cliente cliente) {		
 		Cliente clienteAlterado = clienteService.alterar(cliente);		
 		return new ResponseEntity<Cliente>(clienteAlterado, HttpStatus.OK);
-	}
-	
-	
+	}	
 }
