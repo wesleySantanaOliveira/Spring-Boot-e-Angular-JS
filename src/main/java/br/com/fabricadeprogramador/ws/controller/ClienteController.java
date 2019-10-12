@@ -44,11 +44,11 @@ public class ClienteController {
 		return new ResponseEntity<>(clientesBuscado, HttpStatus.OK);
 	}
 	
-	//CONSULTA EXCLUIR
+	//EXCLUIR CLIENTE
 	@RequestMapping(method = RequestMethod.DELETE, value = "/clientes/{id}")
 	public ResponseEntity<Cliente> excluirCliente(@PathVariable Integer id) {	
 		
-		Cliente clienteEncontrado = clienteService.buscaPorId(id);			
+		Cliente clienteEncontrado = (Cliente) clienteService.buscaPorId(id);			
 		if(clienteEncontrado == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);			
 		}	

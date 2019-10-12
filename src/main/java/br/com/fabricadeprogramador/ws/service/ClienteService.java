@@ -32,8 +32,8 @@ public class ClienteService {
 		}
 		
 		//BUSCA POR ID
-		public Cliente buscaPorId(Integer id) {
-			return clienteResposity.findOne(id);
+		public Object buscaPorId(Integer id) {
+			return clienteResposity.findById(id);
 		}
 		
 		//ALTERAR
